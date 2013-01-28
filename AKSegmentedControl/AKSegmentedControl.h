@@ -28,42 +28,20 @@
 typedef enum : NSUInteger
 {
     AKSegmentedControlModeSticky,
-    AKSegmentedControlModeButton
+    AKSegmentedControlModeButton,
+    AKSegmentedControlModeMultipleSelectionable,
 } AKSegmentedControlMode;
 
-@protocol AKSegmentedControlDelegate <NSObject>
 
-@optional
-- (void)segmentedViewController:(AKSegmentedControl *)segmentedControl touchedAtIndex:(NSUInteger)index;
+@interface AKSegmentedControl : UIControl
 
-@end
-
-@interface AKSegmentedControl : UIView
-
-@property (nonatomic, assign) id<AKSegmentedControlDelegate> delegate;
-
-/**
- */
 @property (nonatomic, strong) NSArray *buttonsArray;
-
-/**
- */
 @property (nonatomic, strong) UIImage *backgroundImage;
-
-/**
- */
 @property (nonatomic, strong) UIImage *separatorImage;
-
-/**
- */
 @property (nonatomic, assign) UIEdgeInsets contentEdgeInsets;
-
-/**
- */
-@property (nonatomic, assign) NSInteger selectedIndex;
-
-/**
- */
 @property (nonatomic, assign) AKSegmentedControlMode segmentedControlMode;
+@property (nonatomic, strong, readonly) NSIndexSet *selectedIndeces;
+
+- (void)selectItemsWithIndexSet:(NSIndexSet *)indexSet byExpandingSelection:(BOOL)expandSelection;
 
 @end
