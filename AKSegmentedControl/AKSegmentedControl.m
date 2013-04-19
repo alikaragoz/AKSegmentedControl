@@ -73,6 +73,7 @@
 
 - (void)layoutSubviews
 {
+    _backgroundImageView.frame = self.bounds;
     CGRect contentRect = UIEdgeInsetsInsetRect(self.bounds, _contentEdgeInsets);
     
     NSUInteger buttonsCount = _buttonsArray.count;
