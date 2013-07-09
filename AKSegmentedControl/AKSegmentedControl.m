@@ -217,6 +217,15 @@
     [self updateButtons];
 }
 
+- (void)setFrame:(CGRect)frame
+{
+    [super setFrame:frame];
+    [self.backgroundImageView setFrame:(CGRect){
+            self.backgroundImageView.frame.origin,
+            self.backgroundImageView.frame.size.width,
+            self.frame.size.height
+    }];
+}
 
 #pragma mark - Rearranging
 
