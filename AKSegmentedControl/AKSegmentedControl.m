@@ -223,6 +223,7 @@
 - (void)rebuildSeparators
 {
     [separatorsArray makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    [separatorsArray removeAllObjects];
     
     NSUInteger separatorsNumber = [_buttonsArray count] - 1;
     
