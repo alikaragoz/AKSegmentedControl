@@ -169,7 +169,7 @@
     
     _buttonsArray = buttonsArray;
     
-    [_buttonsArray enumerateObjectsWithOptions:NSEnumerationConcurrent usingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+    [_buttonsArray enumerateObjectsWithOptions:nil usingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
          [self addSubview:(UIButton *)obj];
         [(UIButton *)obj addTarget:self action:@selector(segmentButtonPressed:) forControlEvents:UIControlEventTouchDown];
         [(UIButton *)obj setTag:idx];
@@ -227,7 +227,7 @@
     
     NSUInteger separatorsNumber = [_buttonsArray count] - 1;
     
-    [_buttonsArray enumerateObjectsWithOptions:NSEnumerationConcurrent usingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+    [_buttonsArray enumerateObjectsWithOptions:nil usingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         if (idx < separatorsNumber)
         {
             UIImageView *separatorImageView = [[UIImageView alloc] initWithImage:_separatorImage];
