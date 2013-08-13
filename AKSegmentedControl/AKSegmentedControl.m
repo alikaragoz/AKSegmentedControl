@@ -117,6 +117,8 @@
         increment++;
         offsetX = CGRectGetMaxX(button.frame);
     }
+  
+    [_backgroundImageView setFrame:self.bounds];
 }
 
 #pragma mark - Button Actions
