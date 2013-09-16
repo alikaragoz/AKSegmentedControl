@@ -73,6 +73,7 @@
 
 - (void)layoutSubviews
 {
+    _backgroundImageView.frame = self.bounds;
     CGRect contentRect = UIEdgeInsetsInsetRect(self.bounds, _contentEdgeInsets);
     
     NSUInteger buttonsCount = _buttonsArray.count;
@@ -224,16 +225,14 @@
 {
     [separatorsArray makeObjectsPerformSelector:@selector(removeFromSuperview)];
     
-    NSUInteger separatorsNumber = [_buttonsArray count] - 1;
-    
-    [_buttonsArray enumerateObjectsWithOptions:NSEnumerationConcurrent usingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        if (idx < separatorsNumber)
-        {
-            UIImageView *separatorImageView = [[UIImageView alloc] initWithImage:_separatorImage];
-            [self addSubview:separatorImageView];
-            [separatorsArray addObject:separatorImageView];
-        }
-    }];
+    NSInteger separatorsNumber = _buttonsArray.count - 1;
+
+    for (NSInteger idx=0; idx<separatorsNumber; ++idx)
+    {
+        UIImageView *separatorImageView = [[UIImageView alloc] initWithImage:_separatorImage];
+        [self addSubview:separatorImageView];
+        [separatorsArray addObject:separatorImageView];
+    }
 }
 
 - (UIImageView *)backgroundImageView
