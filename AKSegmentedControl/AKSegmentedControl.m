@@ -169,8 +169,8 @@
     
     _buttonsArray = buttonsArray;
     
-    [_buttonsArray enumerateObjectsWithOptions:NSEnumerationConcurrent usingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-         [self addSubview:(UIButton *)obj];
+    [_buttonsArray enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        [self addSubview:(UIButton *)obj];
         [(UIButton *)obj addTarget:self action:@selector(segmentButtonPressed:) forControlEvents:UIControlEventTouchDown];
         [(UIButton *)obj setTag:idx];
     }];
