@@ -168,7 +168,6 @@ static CGFloat const kAKButtonSeparatorWidth = 1.0;
 
 - (void)setButtonsArray:(NSArray *)buttonsArray {
     [_buttonsArray makeObjectsPerformSelector:@selector(removeFromSuperview)];
-    [_separatorsArray removeAllObjects];
     
     _buttonsArray = buttonsArray;
     
