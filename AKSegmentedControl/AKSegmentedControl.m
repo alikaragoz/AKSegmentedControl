@@ -146,7 +146,16 @@ static CGFloat const kAKButtonSeparatorWidth = 1.0;
         
         [self setSelectedIndexes:[mutableSet copy]];
     }
-    
+    else if (_segmentedControlMode == AKSegmentedControlModeReverse) {
+        NSMutableIndexSet *mutableSet = [set mutableCopy];
+        if ([_selectedIndexes containsIndex:selectedIndex]) {
+            [mutableSet removeIndex:selectedIndex];
+        }else {
+            [mutableSet removeAllIndexes];
+            [mutableSet addIndex:selectedIndex];
+        }
+        [self setSelectedIndexes:[mutableSet copy]];
+    }
     else {
         [self setSelectedIndex:selectedIndex];
     }
@@ -158,6 +167,15 @@ static CGFloat const kAKButtonSeparatorWidth = 1.0;
     }
     
 }
+
+
+- (void)reset
+{
+    NSMutableIndexSet *mutableSet = [_selectedIndexes mutableCopy];
+    [mutableSet removeAllIndexes];
+    [self setSelectedIndexes:mutableSet];
+}
+
 
 #pragma mark - Setters
 

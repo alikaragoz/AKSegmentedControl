@@ -28,6 +28,9 @@ typedef NS_ENUM(NSUInteger, AKSegmentedControlMode) {
     /** Upon touching the buttons, they will remain selected. */
     AKSegmentedControlModeSticky,
     
+    /* Deselect button，按钮选中情况下，再次点击触发按钮转未选中状态 */
+    AKSegmentedControlModeReverse,
+    
     /** Button like mode. Upon touching the buttons, they will transition from selected to normal mode. */
     AKSegmentedControlModeButton,
     
@@ -70,5 +73,7 @@ typedef NS_ENUM(NSUInteger, AKSegmentedControlMode) {
  *  @param expandSelection When set this keeps previously selected indexes.
  */
 - (void)setSelectedIndexes:(NSIndexSet *)indexSet byExpandingSelection:(BOOL)expandSelection;
+
+- (void)reset;
 
 @end
